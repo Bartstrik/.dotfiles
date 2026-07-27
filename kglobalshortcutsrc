@@ -270,6 +270,9 @@ toggle do not disturb=none,none,Toggle do not disturb
 [services][net.local.brave.sh.desktop]
 _launch=Alt+1
 
+[services][net.local.kodi.sh.desktop]
+_launch=Alt+K
+
 [services][net.local.konsole.sh.desktop]
 _launch=Alt+2
 
