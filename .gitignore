@@ -1,11 +1,14 @@
 *
-/shortcut_scripts/add_script
 
 !.gitignore
 !README.md
 !tmux.conf
-!/shortcut_scripts/
-!/shortcut_scripts/**
+!shortcut_scripts/
+!shortcut_scripts/**
+shortcut_scripts/add_script
 !kglobalshortcutsrc
-!/nvim/
-!/nvim/init.lua
+!nvim/
+!nvim/init.lua
+!zathura/
+!zathura/zathurarc
+

@@ -288,5 +288,8 @@ _launch=Alt+F2
 [services][net.local.thunar.sh.desktop]
 _launch=Alt+3
 
+[services][net.local.zathura.sh.desktop]
+_launch=Alt+4
+
 [services][org.kde.krunner.desktop]
 _launch=Search\tAlt+Space
