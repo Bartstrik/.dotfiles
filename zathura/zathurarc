@@ -1,1 +1,15 @@
+#enable clipboard
 set selection-clipboard clipboard
+
+#fullscreen as default
+set window-height 3000
+set window-width 3000
+
+#remember page
+set open-first-page false
+
+#slightly quicker scrolling
+set scroll-step 80
+
+#open file with Ctrl+o
+map <C-o> open
