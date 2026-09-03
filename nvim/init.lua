@@ -103,6 +103,9 @@ vim.keymap.set("i", "<C-j>", "<C-o>j")
 vim.keymap.set("i", "<C-k>", "<C-o>k")
 vim.keymap.set("i", "<C-l>", "<C-o>l")
 
+-- let h and l (and arrow keys) wrap to the previous and next lines.
+vim.opt.whichwrap = "<,>,[,],h,l"
+
 function leave_snippet()
 	if
 		((vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n") or vim.v.event.old_mode == "i")
