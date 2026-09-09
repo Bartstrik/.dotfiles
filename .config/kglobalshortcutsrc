@@ -143,7 +143,7 @@ Window One Screen Down=none,none,Move Window One Screen Down
 Window One Screen Up=none,none,Move Window One Screen Up
 Window One Screen to the Left=none,none,Move Window One Screen to the Left
 Window One Screen to the Right=none,none,Move Window One Screen to the Right
-Window Operations Menu=Alt+F3,Alt+F3,Window Menu
+Window Operations Menu=none,Alt+F3,Window Menu
 Window Pack Down=none,none,Move Window Down
 Window Pack Left=none,none,Move Window Left
 Window Pack Right=none,none,Move Window Right
@@ -270,6 +270,9 @@ toggle do not disturb=none,none,Toggle do not disturb
 [services][net.local.brave.sh.desktop]
 _launch=Alt+1
 
+[services][net.local.code.sh.desktop]
+_launch=Alt+F3
+
 [services][net.local.kodi.sh.desktop]
 _launch=Alt+K
 
@@ -293,3 +296,7 @@ _launch=Alt+4
 
 [services][org.kde.krunner.desktop]
 _launch=Search\tAlt+Space
+
+[services][org.kde.spectacle.desktop]
+CurrentMonitorScreenShot=none
+OpenWithoutScreenshot=none

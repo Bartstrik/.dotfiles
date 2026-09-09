@@ -2,13 +2,16 @@
 
 !.gitignore
 !README.md
-!tmux.conf
-!shortcut_scripts/
-!shortcut_scripts/**
-shortcut_scripts/add_script
-!kglobalshortcutsrc
-!nvim/
-!nvim/init.lua
-!zathura/
-!zathura/zathurarc
+!.tmux.conf
+!.config/
+!.config/shortcut_scripts/
+!.config/shortcut_scripts/**
+.config/shortcut_scripts/add_script
+!.config/kglobalshortcutsrc
+!.config/nvim/
+!.config/nvim/init.lua
+!.config/zathura/
+!.config/zathura/zathurarc
+!.config/fish/
+!.config/fish/fish_variables
 
