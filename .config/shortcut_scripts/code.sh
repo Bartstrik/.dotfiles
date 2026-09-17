@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
-window="$(kdotool search code -t -l 1)"
+window="$(kdotool search code-oss -c -l 1)"
 if [[ $window == "" ]]; then 
-	code
+	code-oss
 else 
 	kdotool windowactivate $window	
 fi

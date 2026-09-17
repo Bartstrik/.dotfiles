@@ -271,7 +271,7 @@ toggle do not disturb=none,none,Toggle do not disturb
 _launch=Alt+1
 
 [services][net.local.code.sh.desktop]
-_launch=Alt+F3
+_launch=Alt+5
 
 [services][net.local.kodi.sh.desktop]
 _launch=Alt+K
@@ -296,7 +296,3 @@ _launch=Alt+4
 
 [services][org.kde.krunner.desktop]
 _launch=Search\tAlt+Space
-
-[services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=none
-OpenWithoutScreenshot=none

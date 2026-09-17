@@ -1,3 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export PIPENV_VENV_IN_PROJECT:1
+SETUVAR fish_user_paths:/home/bart/\x2ecargo/bin

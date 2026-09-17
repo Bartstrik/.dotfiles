@@ -380,6 +380,11 @@ require("lazy").setup({
 		build = "go build",
 		-- build = 'go build -o ~/.bin/' -- if e.g. ~/.bin/ is in $PATH
 	},
+	jupytext = {
+		"goerz/jupytext.nvim",
+		version = "0.2.0",
+		opts = {}, -- see Options
+	},
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 	--
 	-- This is often very useful to both group configuration, as well as handle
@@ -719,6 +724,11 @@ require("lazy").setup({
 					filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 				},
 				texlab = {},
+				bashls = {
+					cmd = { "bash-language-server", "start" },
+					filetypes = { "bash", "sh" },
+				},
+				asm_lsp = {},
 
 				-- gopls = {},
 				-- pyright = {},
@@ -777,6 +787,7 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				-- You can add other tools here that you want Mason to install
+				"shellcheck",
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
