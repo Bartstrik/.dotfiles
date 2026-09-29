@@ -1,0 +1,55 @@
+Thu Sep 17 14:00:20 CEST 2026
+
+Thu Sep 17 21:17:39 CEST 2026
+
+Sat Sep 19 08:10:43 CEST 2026
+
+Sat Sep 19 20:02:29 CEST 2026
+
+Sun Sep 20 20:28:41 CEST 2026
+debug: STEP search konsole
+{2cdb367a-e77d-4e17-8bde-13490c566505}
+Sun Sep 20 20:29:11 CEST 2026
+debug: STEP search konsole
+{2cdb367a-e77d-4e17-8bde-13490c566505}
+Sun Sep 20 20:29:33 CEST 2026
+debug: STEP search konsole
+{2cdb367a-e77d-4e17-8bde-13490c566505}
+Sun Sep 20 20:29:37 CEST 2026
+debug: STEP search konsole
+{2cdb367a-e77d-4e17-8bde-13490c566505}
+Sun Sep 20 20:30:30 CEST 2026
+debug: STEP search konsole
+{2cdb367a-e77d-4e17-8bde-13490c566505}
+Sun Sep 20 20:30:56 CEST 2026
+debug: STEP search konsole
+{2cdb367a-e77d-4e17-8bde-13490c566505}
+Sun Sep 20 20:31:13 CEST 2026
+debug: STEP search konsole
+{2cdb367a-e77d-4e17-8bde-13490c566505}
+Sun Sep 20 20:32:16 CEST 2026
+debug: STEP search konsole
+{2cdb367a-e77d-4e17-8bde-13490c566505}
+Wed Sep 23 08:55:37 CEST 2026
+
+Wed Sep 23 09:20:08 CEST 2026
+
+Wed Sep 23 16:03:52 CEST 2026
+debug: STEP search konsole
+{43536229-82d3-4c81-8272-50f9483036d8}
+Wed Sep 23 16:06:34 CEST 2026
+HERE!
+debug: STEP search konsole
+{43536229-82d3-4c81-8272-50f9483036d8}
+Wed Sep 23 16:07:25 CEST 2026
+HERE!
+debug: STEP search konsole
+{43536229-82d3-4c81-8272-50f9483036d8}
+Wed Sep 23 16:08:42 CEST 2026
+HERE!
+debug: STEP search konsole
+{43536229-82d3-4c81-8272-50f9483036d8}
+Wed Sep 23 16:55:36 CEST 2026
+
+Mon Sep 28 08:34:34 CEST 2026
+

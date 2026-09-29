@@ -294,7 +294,7 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`
-	--{ "NMAC427/guess-indent.nvim", opts = {} },
+	{ "NMAC427/guess-indent.nvim", opts = {} },
 	{ "ThePrimeagen/vim-be-good" },
 	{
 		"nvim-mini/mini.icons",
@@ -319,7 +319,19 @@ require("lazy").setup({
 			-- Open parent directory in current window
 			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		end,
-	}, -- Alternatively, use `config = function() ... end` for full control over the configuration.
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "^4.0.0", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		-- Optional: See `:h nvim-surround.configuration` and `:h nvim-surround.setup` for details
+		-- config = function()
+		--     require("nvim-surround").setup({
+		--         -- Put your configuration here
+		--     })
+		-- end
+	},
+	-- Alternatively, use `config = function() ... end` for full control over the configuration.
 	-- If you prefer to call `setup` explicitly, use:
 	--    {
 	--        'lewis6991/gitsigns.nvim',
@@ -380,7 +392,7 @@ require("lazy").setup({
 		build = "go build",
 		-- build = 'go build -o ~/.bin/' -- if e.g. ~/.bin/ is in $PATH
 	},
-	jupytext = {
+	{
 		"goerz/jupytext.nvim",
 		version = "0.2.0",
 		opts = {}, -- see Options
@@ -416,6 +428,64 @@ require("lazy").setup({
 				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } }, -- Enable gitsigns recommended keymaps first
 				{ "gr", group = "LSP Actions", mode = { "n" } },
+
+				{ "<leader>d", group = "Debugger" },
+
+				{
+					"<leader>db",
+					function()
+						require("dap").toggle_breakpoint()
+					end,
+					desc = "Toggle Breakpoint",
+				},
+
+				{
+					"<leader>dc",
+					function()
+						require("dap").continue()
+					end,
+					desc = "Continue",
+				},
+
+				{
+					"<leader>di",
+					function()
+						require("dap").step_into()
+					end,
+					desc = "Step Into",
+				},
+
+				{
+					"<leader>do",
+					function()
+						require("dap").step_over()
+					end,
+					desc = "Step Over",
+				},
+
+				{
+					"<leader>du",
+					function()
+						require("dap").step_out()
+					end,
+					desc = "Step Out",
+				},
+
+				{
+					"<leader>dr",
+					function()
+						require("dap").repl.open()
+					end,
+					desc = "Open REPL",
+				},
+
+				{
+					"<leader>dq",
+					function()
+						require("dap").terminate()
+					end,
+					desc = "Terminate",
+				},
 			},
 		},
 	},
@@ -728,7 +798,21 @@ require("lazy").setup({
 					cmd = { "bash-language-server", "start" },
 					filetypes = { "bash", "sh" },
 				},
-				asm_lsp = {},
+				asm_lsp = {
+					cmd = { "asm-lsp" },
+					filetypes = { "asm", "s", "S" },
+				},
+				pylsp = {
+					settings = {
+						pylsp = {
+							plugins = {
+								pycodestyle = {
+									maxLineLength = 150,
+								},
+							},
+						},
+					},
+				},
 
 				-- gopls = {},
 				-- pyright = {},
@@ -795,6 +879,81 @@ require("lazy").setup({
 			for name, server in pairs(servers) do
 				vim.lsp.config(name, server)
 				vim.lsp.enable(name)
+			end
+		end,
+	},
+
+	{
+		"mfussenegger/nvim-dap",
+		event = "VeryLazy",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+			"jay-babu/mason-nvim-dap.nvim",
+			"theHamsta/nvim-dap-virtual-text",
+		},
+		config = function()
+			local mason_dap = require("mason-nvim-dap")
+			local dap = require("dap")
+			local dapui = require("dapui")
+			local dap_virtual_text = require("nvim-dap-virtual-text")
+
+			dap_virtual_text.setup()
+
+			mason_dap.setup({
+				ensure_installed = { "cppdbg" },
+				automatic_installation = true,
+				handlers = {
+					function(config)
+						require("mason-nvim-dap").default_setup(config)
+					end,
+				},
+			})
+
+			dapui.setup()
+
+			dap.adapters.gdb = {
+				type = "executable",
+				command = "gdb",
+				args = { "-i", "dap" },
+			}
+
+			dap.configurations.c = {
+				{
+					name = "Launch",
+					type = "gdb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopAtBeginningOfMainSubprogram = false,
+				},
+			}
+
+			dap.configurations.cpp = dap.configurations.c
+
+			vim.fn.sign_define("DapBreakpoint", {
+				text = "●",
+				texthl = "DiagnosticSignError",
+				linehl = "",
+				numhl = "",
+			})
+
+			dap.listeners.before.attach.dapui_config = function()
+				dapui.open()
+			end
+
+			dap.listeners.before.launch.dapui_config = function()
+				dapui.open()
+			end
+
+			dap.listeners.before.event_terminated.dapui_config = function()
+				dapui.close()
+			end
+
+			dap.listeners.before.event_exited.dapui_config = function()
+				dapui.close()
 			end
 		end,
 	},
@@ -1017,6 +1176,12 @@ require("lazy").setup({
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
 		config = function()
 			local parsers = {
+				"asm",
+				"bibtex",
+				"cpp",
+				"fish",
+				"gitcommit",
+				"python",
 				"bash",
 				"c",
 				"diff",

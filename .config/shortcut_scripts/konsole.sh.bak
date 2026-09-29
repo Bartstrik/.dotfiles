@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+window="$(kdotool -d search konsole -n -l 1)"
+IFS=$'\n' read -d "\0" -ra window_arr <<< "($window)"
+window_arr_len=$((${#window_arr[@]})) 
+#
+printf '%s\n' "${window}"
+# printf '%s\n' "${window_arr_len}"
+# printf '%s\n' "${window_arr[window_arr_len - 1]}"
+#
+if [[ ${window_arr_len} -eq 1 ]]; then 
+	date >> /home/bart/.config/shortcut_scripts/log.txt
+	echo "HERE!" >> /home/bart/.config/shortcut_scripts/log.txt
+	echo "${window}" >> /home/bart/.config/shortcut_scripts/log.txt
+	konsole
+else 
+	kdotool windowactivate "${window_arr[window_arr_len - 1]}"
+fi
