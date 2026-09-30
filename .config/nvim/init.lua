@@ -711,6 +711,21 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"salkin-mada/openscad.nvim",
+		config = function()
+			vim.g.openscad_pdf_cmd = "zathura"
+			vim.g.openscad_default_mappings = true
+			vim.g.openscad_load_snippets = true
+			vim.g.openscad_auto_open = true
+			require("openscad")
+		end,
+		dependencies = {
+			"ibhagwan/fzf-lua",
+			"L3MON4D3/LuaSnip", -- optional
+		},
+	},
+
 	-- LSP Plugins
 	{
 		-- Main LSP Configuration
