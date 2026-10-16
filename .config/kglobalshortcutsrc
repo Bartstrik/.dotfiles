@@ -108,6 +108,8 @@ Switch to Screen to the Left=none,none,Switch to Screen to the Left
 Switch to Screen to the Right=none,none,Switch to Screen to the Right
 Toggle Night Color=none,none,Suspend/Resume Night Light
 Toggle Window Raise/Lower=none,none,Toggle Window Raise/Lower
+ToggleMouseClick=Meta+*,Meta+*,Toggle Mouse Click Animation
+TrackMouse=none,none,Track mouse
 Walk Through Windows=Alt+Tab\tMeta+Tab,Alt+Tab\tMeta+Tab,Walk Through Windows
 Walk Through Windows (Reverse)=Alt+Shift+Tab\tMeta+Shift+Tab,Alt+Shift+Tab\tMeta+Shift+Tab,Walk Through Windows (Reverse)
 Walk Through Windows Alternative=none,none,Walk Through Windows Alternative
@@ -273,8 +275,11 @@ _launch=Alt+1
 [services][net.local.code.sh.desktop]
 _launch=Alt+5
 
-[services][net.local.kodi.sh.desktop]
+[services][net.local.kicad.sh.desktop]
 _launch=Alt+K
+
+[services][net.local.kodi.sh.desktop]
+_launch=Alt+F3
 
 [services][net.local.konsole.sh.desktop]
 _launch=Alt+2
